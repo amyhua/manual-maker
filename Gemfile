@@ -4,7 +4,7 @@ ruby '2.0.0'
 gem 'rails', '3.2.13'
 gem 'dynamic_form', '1.1.4'
 gem 'email_spec', '1.2.1'
-gem 'sqlite3'
+gem 'pg'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
