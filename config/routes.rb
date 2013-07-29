@@ -1,4 +1,13 @@
 HowTosite::Application.routes.draw do
+  root :to => "manuals#index"
+  
+  resources :manuals do
+    resources :sections do
+      resources :steps
+    end
+  end
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

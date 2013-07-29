@@ -1,0 +1,31 @@
+<%= form_for(@manual) do |f| %>
+  <% if @manual.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@manual.errors.count, "error") %> prohibited this manual from being saved:</h2>
+
+      <ul>
+      <% @manual.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<h3>Manual</h3>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %><br /><br />
+	<h3>Sections</h3>
+	<ol>
+    	<%= f.fields_for :sections do |builder| %>
+	    	<%= render 'section_fields', :f => builder %>
+	    <% end %>
+    	<li>
+    		<%= link_to_add_fields "Add Section", f, :sections %>
+    	</li>
+	</ol>
+
+  </div>
+  <div class="actions">
+    <%= f.submit 'Save' %>
+  </div>
+<% end %>

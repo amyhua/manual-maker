@@ -1,0 +1,28 @@
+<% title("Manuals | " + @manual.name) %>
+
+<h2><%= @manual.name %></h2>
+
+
+
+<ol>
+	<% @manual.sections.each do |section| %>
+	<h3><li>
+		<%= section.name %></h3>
+		<p>
+			<%= simple_format(section.description) %>
+		</p>
+		<p>
+			<h4>Instructions:</h4>
+			<ol>
+				<% for step in section.steps %>
+				<li><%=h step.content %></li>
+				<% end %>
+			</ol>
+
+		</p>
+	</li>
+	<% end %>
+</ol>
+
+<%= link_to 'Edit', edit_manual_path(@manual) %> |
+<%= link_to 'Back', manuals_path %>

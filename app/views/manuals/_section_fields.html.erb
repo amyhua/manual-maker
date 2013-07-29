@@ -1,0 +1,19 @@
+<div class="fields">
+	<li>
+		<b><%= f.label :name, "Section Name: " %></b>
+		<%= f.text_field :name %><br />
+		<%= f.label :description, "Description" %><br />
+		<%= f.text_area :description, :rows => 5 %><br />	
+		<%= link_to_remove_fields "remove section", f %><br />
+	
+		<u>Steps:</u>
+	</li>
+	
+	<ol>
+		<%= f.fields_for :steps do |builder| %>
+			<%= render 'step_fields', :f => builder %>
+		<% end %>		
+		<li><%= link_to_add_fields "Add Step", f, :steps %></li>
+	
+	</ol>
+</div>>
